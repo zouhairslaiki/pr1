@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            transition: background-color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+
+        nav ul li a.active,
+        nav ul li a:hover {
+            background-color: #555;
+        }
+
+        #mode-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        .cart-container {
+            max-width: 960px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .cart-item img {
+            max-width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: bold;
+        }
+
+        .cart-item-price {
+            font-size: 16px;
+        }
+
+        .cart-item-quantity {
+            font-size: 14px;
+        }
+
+        .cart-item-delete {
+            color: #ff0000;
+            cursor: pointer;
+        }
+
+        .cart-total {
+            margin-top: 20px;
+            text-align: right;
+            font-weight: bold;
+        }
+        .delete-button {
+            cursor: pointer;
+            padding: 5px;
+            background-color: #ffffff;
+            color: #fff;
+            border-radius: 50%;
+        }
+        .delete-button:hover {
+            background-color: #000000;
+        }
+        .delete-icon {
+            font-size: 20px;
+        }
+
+    /* Existing styles */
+    /* ... */
+
+    /* Payment form styles */
+    #payment-info {
+        margin-top: 20px;
+    }
+
+    #payment-info form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    #payment-info label {
+        width: 45%;
+        margin-bottom: 10px;
+    }
+
+    #payment-info .form-group {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #payment-info .form-group > div {
+        width: 45%;
+        margin-bottom: 10px;
+    }
+
+    #payment-info input[type="text"],
+    #payment-info input[type="number"],
+    #payment-info select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    #payment-info select {
+        cursor: pointer;
+    }
+
+    #payment-info button {
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    #payment-info button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Shopping Cart</h1>
+            <nav>
+                <ul>
+                    <li><a href="Originalfootstore.html">Accueil</a></li>
+                    <li><a href="Catalogue.html">Catalogue</a></li>
+                    <li><a href="#" class="active">Panier</a></li>
+                    <li><a href="Blog.html">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="cart-container">
+            <h2>Votre Panier</h2>
+            <div id="cart-items"></div>
+            <div class="cart-total">Total: <span id="cart-total-price">$0.00</span></div>
+        </div>
+
+        <!-- Payment Button and Information -->
+        <button id="payment-button" onclick="togglePaymentInfo()">Proceed to Payment</button>
+        <div id="payment-info" style="display: none;">
+            <h3>Payment Information</h3>
+            <div>
+                <label for="fname">First Name:</label>
+                <input type="text" id="fname" name="fname"><br>
+                <label for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lname"><br>
+            </div>
+            <div>
+                <label for="cardnum">Card Number:</label>
+                <input type="text" id="cardnum" name="cardnum"><br>
+            </div>
+            <div>
+                <label for="expdate">Expires:</label>
+                <input type="text" id="expdate" name="expdate" placeholder="MM / YYYY"><br>
+            </div>
+            <div>
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv"><br>
+            </div>
+            <div>
+                <label for="adr">Address:</label>
+                <input type="text" id="adr" name="adr"><br>
+            </div>
+            <div>
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country">
+                <label for="zip">Postal Code:</label>
+                <input type="text" id="zip" name="zip"><br>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mode Toggle Button -->
+    <div id="mode-toggle" onclick="toggleMode()">🌙</div>
+
+    <!-- JavaScript -->
+    <script>
+        function toggleMode() {
+            var body = document.body;
+            var modeToggle = document.getElementById('mode-toggle');
+            body.classList.toggle("dark-mode");
+            if (body.classList.contains("dark-mode")) {
+                modeToggle.textContent = "☀️";
+                body.style.backgroundColor = "#222"; 
+            } else {
+                modeToggle.textContent = "🌙"; 
+                body.style.backgroundColor = "#f4f4f4"; 
+            }
+        }
+
+        function renderCartItems() {
+            let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartContainer = document.getElementById('cart-items');
+            let total = 0;
+            cartContainer.innerHTML = '';
+            cartItems.forEach((item, index) => {
+                total += item.price * item.quantity;
+                let cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <img src="pics/${item.name}.jpg" alt="${item.name}">
+                    <div class="cart-item-details">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+                        <div class="cart-item-quantity">Quantity: ${item.quantity}</div>
+                    </div>
+                    <div class="delete-button" onclick="deleteItem(${index})">
+                        <span class="delete-icon">🗑️</span>
+                    </div>
+                `;
+                cartContainer.appendChild(cartItem);
+            });
+            document.getElementById('cart-total-price').textContent = `$${total.toFixed(2)}`;
+        }
+
+        function deleteItem(index) {
+            let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            if (cartItems[index].quantity > 1) {
+                cartItems[index].quantity -= 1;
+            } else {
+                cartItems.splice(index, 1);
+            }
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            renderCartItems();
+        }
+
+        function togglePaymentInfo() {
+            var paymentInfo = document.getElementById('payment-info');
+            paymentInfo.style.display = paymentInfo.style.display === 'none' ? 'block' : 'none';
+        }
+
+        renderCartItems();
+    </script>
+</body>
+</html>

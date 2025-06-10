@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneaker Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center; 
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center; 
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+
+        nav ul li a.active,
+        nav ul li a:hover {
+            background-color: #555;
+        }
+
+
+        #mode-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Sneaker Shop</h1>
+            <nav>
+                <ul>
+                    <li><a href="Originalfootstore.html" class="active">Accueil</a></li>
+                    <li><a href="Catalogue.html">Catalogue</a></li>
+                    <li><a href="Panier.html">Panier</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+  
+    </div>
+
+    <div id="mode-toggle" onclick="toggleMode()">
+        🌙
+    </div>
+
+    <script>
+        function toggleMode() {
+            var body = document.body;
+            var modeToggle = document.getElementById('mode-toggle');
+            body.classList.toggle("dark-mode");
+            if (body.classList.contains("dark-mode")) {
+                modeToggle.textContent = "☀️";
+                body.style.backgroundColor = "#222"; 
+            } else {
+                modeToggle.textContent = "🌙"; 
+                body.style.backgroundColor = "#f4f4f4"; 
+            }
+        }
+    </script>
+</body>
+</html>
