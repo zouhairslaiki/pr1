@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportShoes - Accueil</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="catalogue.html">Catalogue</a>
+            <a href="panier.html">Panier</a>
+            <a href="blog.html">Blog</a>
+        </nav>
+        <button id="theme-toggle" class="theme-button">
+            <i id="theme-icon" class="ri-moon-line"></i>
+        </button>
+    </header>
+    <main>
+        <section class="home" id="home">
+            <div class="home__container container grid">
+                <img src="assets/img/home_shoes.png" alt="Home Image" class="home__img">
+                <div class="home__data">
+                    <h1 class="home__title">Step Up Your Game with Our Sports Shoes</h1>
+                    <p class="home__description">Discover the latest in sports shoe technology designed to enhance your performance and style.</p>
+                    <a href="#about" class="button button--flex">Learn More <i class="ri-arrow-right-down-line button__icon"></i></a>
+                </div>
+            </div>
+        </section>
+        <section class="about section container" id="about">
+            <div class="about__container grid">
+                <img src="assets/img/about_shoes.png" alt="About Image" class="about__img">
+                <div class="about__data">
+                    <h2>About SportShoes</h2>
+                    <p class="about__description">At SportShoes, we are dedicated to providing the best in sports footwear. Our shoes are designed to enhance your performance and keep you comfortable throughout your activities.</p>
+                    <div class="about__details">
+                        <p class="about__details-description"><i class="ri-checkbox-fill about__details-icon"></i>High-quality materials</p>
+                        <p class="about__details-description"><i class="ri-checkbox-fill about__details-icon"></i>Latest technology</p>
+                        <p class="about__details-description"><i class="ri-checkbox-fill about__details-icon"></i>Wide variety of styles</p>
+                        <p class="about__details-description"><i class="ri-checkbox-fill about__details-icon"></i>Affordable prices</p>
+                    </div>
+                    <a href="#products" class="button--link button--flex">Our Products <i class="ri-arrow-right-down-line button__icon"></i></a>
+                </div>
+            </div>
+        </section>
+        <section class="products section container" id="products">
+            <h2 class="section__title-center">Our Products</h2>
+            <div class="products__container grid">
+                <article class="products__card">
+                    <img src="chaussure1.jpg" alt="Running Shoes" class="products__img">
+                    <h3 class="products__title">Running Shoes</h3>
+                    <span class="products__price">$120.00</span>
+                </article>
+                <article class="products__card">
+                    <img src="chaussure2.jpg" alt="Basketball Shoes" class="products__img">
+                    <h3 class="products__title">Basketball Shoes</h3>
+                    <span class="products__price">$140.00</span>
+                </article>
+                <article class="products__card">
+                    <img src="chaussure3.jpg" alt="Training Shoes" class="products__img">
+                    <h3 class="products__title">Training Shoes</h3>
+                    <span class="products__price">$100.00</span>
+                </article>
+                <article class="products__card">
+                    <img src="chaussure1.jpg" alt="Casual Sneakers" class="products__img">
+                    <h3 class="products__title">Casual Sneakers</h3>
+                    <span class="products__price">$90.00</span>
+                </article>
+            </div>
+        </section>
+        <section class="questions section" id="faqs">
+            <h2 class="section__title-center questions__title container">Frequently Asked Questions</h2>
+            <div class="questions__container container grid">
+                <div class="questions__group">
+                    <div class="questions__item">
+                        <header class="questions__header">
+                            <i class="ri-add-line questions__icon"></i>
+                            <h3 class="questions__item-title">What are the benefits of SportShoes?</h3>
+                        </header>
+                        <div class="questions__content">
+                            <p class="questions__description">Our sports shoes are designed with the latest technology to enhance your performance and provide maximum comfort.</p>
+                        </div>
+                    </div>
+                    <div class="questions__item">
+                        <header class="questions__header">
+                            <i class="ri-add-line questions__icon"></i>
+                            <h3 class="questions__item-title">How do I find my size?</h3>
+                        </header>
+                        <div class="questions__content">
+                            <p class="questions__description">Refer to our size guide on the product page to find your perfect fit.</p>
+                        </div>
+                    </div>
+                    <div class="questions__item">
+                        <header class="questions__header">
+                            <i class="ri-add-line questions__icon"></i>
+                            <h3 class="questions__item-title">Can I return or exchange my shoes?</h3>
+                        </header>
+                        <div class="questions__content">
+                            <p class="questions__description">Yes, we have a hassle-free return and exchange policy. Check our returns page for more details.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="newsletter section container" id="newsletter">
+            <div class="newsletter__bg grid">
+                <div>
+                    <h2 class="newsletter__title">Subscribe to Our Newsletter</h2>
+                    <p class="newsletter__description">Stay updated with our latest products and offers.</p>
+                </div>
+                <form action="" class="newsletter__subscribe">
+                    <input type="email" placeholder="Enter your email" class="newsletter__input">
+                    <button class="button">Subscribe</button>
+                </form>
+            </div>
+        </section>
+        <section class="contact section container" id="contact">
+            <div class="contact__container grid">
+                <div class="contact__content">
+                    <h2 class="section__title-center">Contact Us</h2>
+                    <p class="contact__description">Have any questions? Get in touch with us via the form below.</p>
+                    <form action="" class="contact__form">
+                        <input type="text" placeholder="Name" class="contact__input">
+                        <input type="email" placeholder="Email" class="contact__input">
+                        <textarea placeholder="Message" class="contact__input"></textarea>
+                        <button class="button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    <!--=============== SCROLL REVEAL ===============-->
+    <script src="script.js"></script>
+        
+    <!--=============== MAIN JS ===============-->
+    <script src="nmnmn.js"></script>
+</body>
+</html>
+</body>
+</html>
